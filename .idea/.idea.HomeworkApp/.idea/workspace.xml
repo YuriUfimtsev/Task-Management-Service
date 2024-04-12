@@ -9,10 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="64b90168-c7ac-4695-b2d5-6edfde397752" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/Interfaces/ITaskRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/Interfaces/ITaskRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/TaskRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/TaskRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/HomeworkApp.IntegrationTests/Fakers/TaskEntityV1Faker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HomeworkApp.IntegrationTests/Fakers/TaskEntityV1Faker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/HomeworkApp.IntegrationTests/RepositoryTests/TaskRepositoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HomeworkApp.IntegrationTests/RepositoryTests/TaskRepositoryTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +138,7 @@
       <workItem from="1712926083511" duration="14473000" />
       <workItem from="1712940593772" duration="1345000" />
       <workItem from="1712942052538" duration="485000" />
-      <workItem from="1712945539579" duration="463000" />
+      <workItem from="1712945539579" duration="3523000" />
     </task>
     <task id="LOCAL-00001" summary="* init">
       <option name="closed" value="true" />
