@@ -8,7 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64b90168-c7ac-4695-b2d5-6edfde397752" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Infrastructure/DateTimeProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/dataSources/adedda82-a07e-4342-9473-4aed6a261553.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/dataSources/adedda82-a07e-4342-9473-4aed6a261553.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Extensions/ServiceCollectionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +75,9 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2d9JTrdS3LiPvV370kXZfmhhnmf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -138,7 +144,7 @@
       <workItem from="1712926083511" duration="14473000" />
       <workItem from="1712940593772" duration="1345000" />
       <workItem from="1712942052538" duration="485000" />
-      <workItem from="1712945539579" duration="3523000" />
+      <workItem from="1712945539579" duration="9830000" />
     </task>
     <task id="LOCAL-00001" summary="* init">
       <option name="closed" value="true" />

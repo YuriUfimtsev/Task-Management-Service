@@ -29,6 +29,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<ITaskRepository, TaskRepository>();
         services.AddScoped<ITaskLogRepository, TaskLogRepository>();
+        services.AddScoped<ITaskCommentRepository, TaskCommentRepository>();
     }
 
     public static IServiceCollection AddDalInfrastructure(
@@ -43,6 +44,9 @@ public static class ServiceCollectionExtensions
         
         //add migrations
         Postgres.AddMigrations(services);
+
+        // add IDateTimeProvider
+        services.AddScoped<IDateTimeProvider, DateTimeProvider>();
         
         return services;
 
