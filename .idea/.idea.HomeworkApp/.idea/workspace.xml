@@ -8,11 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64b90168-c7ac-4695-b2d5-6edfde397752" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/HomeworkApp.Bll/Models/TaskMessage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/HomeworkApp.IntegrationTests/Fakers/TaskCommentEntityV1Faker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/dataSources/adedda82-a07e-4342-9473-4aed6a261553.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/dataSources/adedda82-a07e-4342-9473-4aed6a261553.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/Interfaces/ITaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/Interfaces/ITaskService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/TaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/TaskService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Proto/Protos/tasks.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Proto/Protos/tasks.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Entities/TaskCommentEntityV1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Entities/TaskCommentEntityV1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Infrastructure/Postgres.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Infrastructure/Postgres.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/TaskCommentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/TaskCommentRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/HomeworkApp.IntegrationTests/Fixtures/TestFixture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HomeworkApp.IntegrationTests/Fixtures/TestFixture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/HomeworkApp.IntegrationTests/RepositoryTests/TaskCommentRepositoryTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HomeworkApp.IntegrationTests/RepositoryTests/TaskCommentRepositoryTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +73,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/771df81db08b4138bc2f5cce7196e83a9800/f9/33b80236/IDistributedCache.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7a1ee6358a994161bde0ad1d67710e9331800/02/03579b5c/SqlMapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f2680567b5d248819d834be88ceb01f7a2a000/00/02fb17cf/NotSupportedException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f2680567b5d248819d834be88ceb01f7a2a000/2b/05922793/InvalidCastException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3b92f859131bde25d0f7a63de08963e995d1e1426e584dfd4b8e833d2d3dba/ExecutionTimer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -112,7 +119,7 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Launch Settings Profile.HomeworkApp: local">
     <configuration name="HomeworkApp: local" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/HomeworkApp/HomeworkApp.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -147,7 +154,8 @@
       <workItem from="1712940593772" duration="1345000" />
       <workItem from="1712942052538" duration="485000" />
       <workItem from="1712945539579" duration="12544000" />
-      <workItem from="1713008265572" duration="2592000" />
+      <workItem from="1713008265572" duration="6029000" />
+      <workItem from="1713015885360" duration="5983000" />
     </task>
     <task id="LOCAL-00001" summary="* init">
       <option name="closed" value="true" />

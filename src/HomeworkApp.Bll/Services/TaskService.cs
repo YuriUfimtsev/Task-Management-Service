@@ -6,7 +6,6 @@ using HomeworkApp.Dal.Entities;
 using HomeworkApp.Dal.Models;
 using HomeworkApp.Dal.Repositories.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
-using StackExchange.Redis;
 using AssignTaskModel = HomeworkApp.Dal.Models.AssignTaskModel;
 using TaskStatus = HomeworkApp.Bll.Enums.TaskStatus;
 

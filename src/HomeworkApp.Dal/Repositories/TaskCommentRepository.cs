@@ -27,14 +27,13 @@ select task_id, author_user_id, message, at, modified_at, deleted_at
   from UNNEST(@TaskComments)
 returning id;
 ";
-        
         await using var connection = await GetConnection();
         var ids = await connection.QueryAsync<long>(
             new CommandDefinition(
                 sqlQuery,
                 new
                 {
-                    TaskComments = model
+                    TaskComments = new[] { model }
                 },
                 cancellationToken: token));
         

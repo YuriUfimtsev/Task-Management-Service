@@ -1,9 +1,12 @@
 using FluentMigrator.Runner;
 using HomeworkApp.Dal.Extensions;
+using HomeworkApp.Dal.Infrastructure;
 using HomeworkApp.Dal.Repositories.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Moq;
 
 namespace HomeworkApp.IntegrationTests.Fixtures
 {
@@ -21,6 +24,8 @@ namespace HomeworkApp.IntegrationTests.Fixtures
         
         public IUserScheduleRepository UserScheduleRepository { get; }
 
+        public Mock<IDateTimeProvider> DateTimeProviderFake { get; } = new();
+
         public TestFixture()
         {
             var config = new ConfigurationBuilder()
@@ -33,6 +38,9 @@ namespace HomeworkApp.IntegrationTests.Fixtures
                 {
                     services.AddDalInfrastructure(config)
                         .AddDalRepositories();
+                    services.Replace(
+                        new ServiceDescriptor(typeof(IDateTimeProvider),
+                            DateTimeProviderFake.Object));
                 })
                 .Build();
             
