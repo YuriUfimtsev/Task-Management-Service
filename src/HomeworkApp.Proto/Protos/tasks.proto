@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 service TasksService {
   rpc V1CreateTask(V1CreateTaskRequest) returns (V1CreateTaskResponse);
   rpc V1GetTask(V1GetTaskRequest) returns (V1GetTaskResponse);
-  rpc V1AssignTask(V1AssignTaskRequest) returns (google.protobuf.Empty); 
+  rpc V1AssignTask(V1AssignTaskRequest) returns (google.protobuf.Empty);
 }
 
 message V1CreateTaskRequest {
