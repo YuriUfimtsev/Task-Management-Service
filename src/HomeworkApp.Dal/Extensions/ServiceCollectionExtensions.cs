@@ -22,6 +22,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddScoped<ITakenTaskRepository, TakenTaskRepository>();
         services.AddScoped<IUserScheduleRepository, UserScheduleRepository>();
+        services.AddSingleton<IRateLimiterRepository, RateLimiterRepository>();
     }
 
     private static void AddPostgresRepositories(IServiceCollection services)
@@ -45,10 +46,9 @@ public static class ServiceCollectionExtensions
         //add migrations
         Postgres.AddMigrations(services);
 
-        // add IDateTimeProvider
+        //add IDateTimeProvider
         services.AddScoped<IDateTimeProvider, DateTimeProvider>();
         
         return services;
-
     }
 }
