@@ -8,18 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64b90168-c7ac-4695-b2d5-6edfde397752" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/HomeworkApp.Bll/RequestLimitExceeded.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/Interfaces/IRateLimiterService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/RateLimiterService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/Interfaces/IRateLimiterRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/RateLimiterRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HomeworkApp/Interceptors/RateLimitingInterceptor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/HomeworkApp.UnitTests/Fixtures/TestFixture.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/HomeworkApp.UnitTests/RateLimiterServiceTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeworkApp.sln" beforeDir="false" afterPath="$PROJECT_DIR$/HomeworkApp.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Extensions/ServiceCollectionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Extensions/ServiceCollectionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/RateLimiterService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/RateLimiterService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/TaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/TaskService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/Interfaces/IRateLimiterRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/Interfaces/IRateLimiterRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/RateLimiterRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/RateLimiterRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/TaskCommentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/TaskCommentRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HomeworkApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/HomeworkApp.UnitTests/Fixtures/TestFixture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HomeworkApp.UnitTests/Fixtures/TestFixture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/HomeworkApp.UnitTests/RateLimiterServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HomeworkApp.UnitTests/RateLimiterServiceTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +122,7 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Launch Settings Profile.HomeworkApp: local">
     <configuration name="HomeworkApp: local" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/HomeworkApp/HomeworkApp.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -164,6 +161,7 @@
       <workItem from="1713015885360" duration="5983000" />
       <workItem from="1713024912641" duration="11854000" />
       <workItem from="1713036911597" duration="38000" />
+      <workItem from="1713255286183" duration="3808000" />
     </task>
     <task id="LOCAL-00001" summary="* init">
       <option name="closed" value="true" />
@@ -235,19 +233,6 @@
           <line>32</line>
           <properties documentPath="$PROJECT_DIR$/src/HomeworkApp.Dal/TypeHandlers/ArrayTypeHandler.cs" containingFunctionPresentation="Method 'Parse'" />
           <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/HomeworkApp.Bll/Services/RateLimiterService.cs</url>
-          <line>34</line>
-          <properties documentPath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/RateLimiterService.cs" containingFunctionPresentation="Method 'ThrowIfTooManyRequests'">
-            <startOffsets>
-              <option value="1009" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1037" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

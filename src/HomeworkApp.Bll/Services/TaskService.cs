@@ -19,6 +19,9 @@ public class TaskService : ITaskService
     private readonly ITakenTaskRepository _takenTaskRepository;
     private readonly IDistributedCache _distributedCache;
 
+    private const int CachedCommentsNumber = 5;
+    private const int CachedCommentsExpirationSeconds = 5;
+
     public TaskService(
         ITaskRepository taskRepository,
         ITaskCommentRepository taskCommentRepository,
@@ -198,14 +201,14 @@ public class TaskService : ITaskService
             IsDeleted = false
         }).ToArray();
 
-        var latestComments = result.Take(5).ToArray();
+        var latestComments = result.Take(CachedCommentsNumber).ToArray();
         var firstCommentsJson = JsonSerializer.Serialize(latestComments);
         await _distributedCache.SetStringAsync(
             cacheKey,
             firstCommentsJson,
             new DistributedCacheEntryOptions()
             {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(5)
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(CachedCommentsExpirationSeconds)
             },
             token);
         

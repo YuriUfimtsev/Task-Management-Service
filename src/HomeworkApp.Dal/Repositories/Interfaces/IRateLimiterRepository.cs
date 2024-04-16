@@ -4,5 +4,5 @@ namespace HomeworkApp.Dal.Repositories.Interfaces;
 
 public interface IRateLimiterRepository
 {
-    public Task<IDatabase> GetConnection();
+    public Task<long> GetActualRequestsScore(string clientIdentifier);
 }

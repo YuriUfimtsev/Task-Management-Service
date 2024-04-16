@@ -1,3 +1,4 @@
+using System.Text;
 using Dapper;
 using HomeworkApp.Dal.Entities;
 using HomeworkApp.Dal.Infrastructure;
@@ -84,7 +85,7 @@ update task_comments
 
     public async Task<TaskCommentEntityV1[]> Get(TaskCommentGetModel model, CancellationToken token)
     {
-        const string sqlQuery = @"
+        var sqlQuery = new StringBuilder(@"
 select c.id
      , c.task_id
      , c.author_user_id
@@ -94,21 +95,24 @@ select c.id
      , c.deleted_at
   from task_comments c
  where task_id = @TaskId
-         and ((@IncludeDeleted
-                   and c.deleted_at is not null) or c.deleted_at is null)
- order by c.at desc;
-";
+");
+        if (!model.IncludeDeleted)
+        {
+            sqlQuery.Append(" AND c.deleted_at IS NULL");
+        }
+
+        sqlQuery.Append(" ORDER BY c.at DESC;");
         
+        var cmd = new CommandDefinition(
+            sqlQuery.ToString(),
+            new
+            {
+                TaskId = model.TaskId
+            },
+            cancellationToken: token);
+
         await using var connection = await GetConnection();
-        var comments = await connection.QueryAsync<TaskCommentEntityV1>(
-            new CommandDefinition(
-                sqlQuery,
-                new
-                {
-                    TaskId = model.TaskId,
-                    IncludeDeleted = model.IncludeDeleted
-                },
-                cancellationToken: token));
+        var comments = await connection.QueryAsync<TaskCommentEntityV1>(cmd);
         
         return comments.ToArray();
     }

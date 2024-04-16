@@ -21,8 +21,6 @@ services.AddGrpc(options =>
     options.Interceptors.Add<RateLimitingInterceptor>();
 });
 
-services.AddValidatorsFromAssemblyContaining(typeof(RateLimitingInterceptor));
-
 //add validation
 services.AddFluentValidation(conf =>
 {

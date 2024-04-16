@@ -8,9 +8,6 @@ public class RateLimiterService : IRateLimiterService
 {
     private readonly IRateLimiterRepository _rateLimiterRepository;
     
-    private const int RequestPerMinute = 100;
-    private readonly TimeSpan _keyTtl = TimeSpan.FromMinutes(1);
-    
     public RateLimiterService(IRateLimiterRepository rateLimiterRepository)
     {
         _rateLimiterRepository = rateLimiterRepository;
@@ -18,19 +15,7 @@ public class RateLimiterService : IRateLimiterService
     
     public async Task ThrowIfTooManyRequests(string clientIP)
     {
-        var key = $"rate-limit:{clientIP}";
-        var database = await _rateLimiterRepository.GetConnection();
-
-        if (!database.KeyExists(key))
-        {
-            database.StringSet(
-                key,
-                RequestPerMinute,
-                _keyTtl,
-                When.NotExists);
-        }
-
-        var actualRequestsScore = database.StringDecrement(key);
+        var actualRequestsScore = await _rateLimiterRepository.GetActualRequestsScore(clientIP);
 
         if (actualRequestsScore < 0)
         {
