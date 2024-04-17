@@ -98,7 +98,7 @@ update tasks
     public async Task<SubTaskModel[]> GetSubTasksInStatus(
         long parentTaskId, Dal.Enums.TaskStatus[] statuses, CancellationToken token)
     {
-        const string sqlQuery = @"
+        const string baseSqlQuery = @"
 with recursive subtasks
        as (select t.id
                 , t.title
@@ -121,11 +121,10 @@ select s.id
      , s.path_array
   from subtasks s
  where s.status = any(@Statuses)
-        and array_length(s.path_array, 1) <> 1;
 ";
         await using var connection = await GetConnection();
         var cmd = new CommandDefinition(
-            sqlQuery,
+            baseSqlQuery + " AND Id <> @ParentTaskId",
             new
             {
                 ParentTaskId = parentTaskId,

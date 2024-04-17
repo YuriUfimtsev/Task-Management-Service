@@ -29,14 +29,14 @@ public class RateLimiterServiceTests : IClassFixture<TestFixture>
     
     [Fact]
     public async Task
-        ThrowIfTooManyRequests_GetMinusOneActualRequestsScoreFromRedis_ShouldThrowRequestLimitExceededException()
+        ThrowIfTooManyRequests_GetOneHundredAndOneActualRequestsScoreFromRedis_ShouldThrowRequestLimitExceededException()
     {
         // Arrange
         var clientIP = "8.8.8.8";
         
         _testFixture.RateLimiterRepositoryFake
             .Setup(fake => fake.GetActualRequestsScore(clientIP))
-            .ReturnsAsync(-1);
+            .ReturnsAsync(101);
 
         // Act && Assert
         await Assert.ThrowsAsync<RequestLimitExceeded>(

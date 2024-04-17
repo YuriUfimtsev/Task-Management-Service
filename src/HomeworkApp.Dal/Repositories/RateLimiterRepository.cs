@@ -7,8 +7,6 @@ namespace HomeworkApp.Dal.Repositories;
 
 public class RateLimiterRepository : RedisRepository, IRateLimiterRepository
 {
-    private const int RequestPerMinute = 100;
-
     public RateLimiterRepository(IOptions<DalOptions> dalSettings) : base(dalSettings.Value)
     {
     }
@@ -26,11 +24,11 @@ public class RateLimiterRepository : RedisRepository, IRateLimiterRepository
         {
             database.StringSet(
                 key,
-                RequestPerMinute,
+                0,
                 KeyTtl,
                 When.NotExists);
         }
 
-        return database.StringDecrement(key);
+        return database.StringIncrement(key);
     }
 }

@@ -10,12 +10,8 @@
     <list default="true" id="64b90168-c7ac-4695-b2d5-6edfde397752" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HomeworkApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/RateLimiterService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/RateLimiterService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/TaskService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Bll/Services/TaskService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/Interfaces/IRateLimiterRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/Interfaces/IRateLimiterRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/RateLimiterRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/RateLimiterRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/TaskCommentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/TaskCommentRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeworkApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/HomeworkApp.UnitTests/Fixtures/TestFixture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HomeworkApp.UnitTests/Fixtures/TestFixture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/TaskRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeworkApp.Dal/Repositories/TaskRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/HomeworkApp.UnitTests/RateLimiterServiceTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/HomeworkApp.UnitTests/RateLimiterServiceTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +103,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;SolutionBuilderGeneralOptionsPage&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -162,6 +158,8 @@
       <workItem from="1713024912641" duration="11854000" />
       <workItem from="1713036911597" duration="38000" />
       <workItem from="1713255286183" duration="3808000" />
+      <workItem from="1713253297553" duration="217000" />
+      <workItem from="1713378427749" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="* init">
       <option name="closed" value="true" />
