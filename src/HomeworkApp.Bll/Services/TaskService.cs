@@ -14,17 +14,23 @@ namespace HomeworkApp.Bll.Services;
 public class TaskService : ITaskService
 {
     private readonly ITaskRepository _taskRepository;
+    private readonly ITaskCommentRepository _taskCommentRepository;
     private readonly ITaskLogRepository _taskLogRepository;
     private readonly ITakenTaskRepository _takenTaskRepository;
     private readonly IDistributedCache _distributedCache;
 
+    private const int CachedCommentsNumber = 5;
+    private const int CachedCommentsExpirationSeconds = 5;
+
     public TaskService(
         ITaskRepository taskRepository,
+        ITaskCommentRepository taskCommentRepository,
         ITaskLogRepository taskLogRepository,
         ITakenTaskRepository takenTaskRepository, 
         IDistributedCache distributedCache)
     {
         _taskRepository = taskRepository;
+        _taskCommentRepository = taskCommentRepository;
         _taskLogRepository = taskLogRepository;
         _takenTaskRepository = takenTaskRepository;
         _distributedCache = distributedCache;
@@ -170,6 +176,43 @@ public class TaskService : ITaskService
         }, token);
         
         transaction.Complete();
+    }
+
+    public async Task<TaskMessage[]> GetComments(long taskId, CancellationToken token)
+    {
+        var cacheKey = "cache_task_comments";
+        var cachedTask = await _distributedCache.GetStringAsync(cacheKey, token);
+        if (!string.IsNullOrEmpty(cachedTask))
+        {
+            return JsonSerializer.Deserialize<TaskMessage[]>(cachedTask);
+        }
+        
+        var comments = await _taskCommentRepository.Get(new TaskCommentGetModel() 
+        {
+            TaskId = taskId,
+            IncludeDeleted = false
+        }, token);
+
+        var result = comments.Select(commentEntity => new TaskMessage()
+        {
+            TaskId = commentEntity.TaskId,
+            At = commentEntity.At,
+            Comment = commentEntity.Message ?? string.Empty,
+            IsDeleted = false
+        }).ToArray();
+
+        var latestComments = result.Take(CachedCommentsNumber).ToArray();
+        var firstCommentsJson = JsonSerializer.Serialize(latestComments);
+        await _distributedCache.SetStringAsync(
+            cacheKey,
+            firstCommentsJson,
+            new DistributedCacheEntryOptions()
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(CachedCommentsExpirationSeconds)
+            },
+            token);
+        
+        return result;
     }
 
     private TransactionScope CreateTransactionScope(

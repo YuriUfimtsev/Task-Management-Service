@@ -34,6 +34,16 @@ public static class TaskEntityV1Faker
         long id)
         => src with { Id = id };
     
+    public static TaskEntityV1 WithParentTaskId(
+        this TaskEntityV1 src, 
+        long? parentTaskId)
+        => src with { ParentTaskId = parentTaskId };
+
+    public static TaskEntityV1 WithStatus(
+        this TaskEntityV1 src, 
+        Dal.Enums.TaskStatus taskStatus)
+        => src with { Status = (int)taskStatus };
+    
     public static TaskEntityV1 WithAssignedToUserId(
         this TaskEntityV1 src, 
         long assignedToUserId)

@@ -94,4 +94,54 @@ update tasks
                 },
                 cancellationToken: token));
     }
+
+    public async Task<SubTaskModel[]> GetSubTasksInStatus(
+        long parentTaskId, Dal.Enums.TaskStatus[] statuses, CancellationToken token)
+    {
+        const string baseSqlQuery = @"
+with recursive subtasks
+       as (select t.id
+                , t.title
+                , t.status
+                , t.parent_task_id
+                , array[t.id] as path_array
+             from tasks t
+            where id = @ParentTaskId
+            union all
+           select t.id
+                , t.title
+                , t.status
+                , t.parent_task_id
+                , s.path_array || t.id
+             from subtasks s
+             join tasks t on t.parent_task_id = s.id)
+select s.id
+     , s.title
+     , s.status
+     , s.path_array
+  from subtasks s
+ where s.status = any(@Statuses)
+";
+        await using var connection = await GetConnection();
+        var cmd = new CommandDefinition(
+            baseSqlQuery + " AND Id <> @ParentTaskId",
+            new
+            {
+                ParentTaskId = parentTaskId,
+                Statuses = statuses.Select(st => (int)st).ToArray()
+            },
+            cancellationToken: token);
+        
+        var result = await connection.QueryAsync(cmd);
+        var subtasks = result.Select(row => 
+            new SubTaskModel
+            {
+                TaskId = row.id,
+                Title = row.title,
+                Status = (Dal.Enums.TaskStatus)row.status,
+                ParentTaskIds = row.path_array as long[] ?? Array.Empty<long>()
+            }).ToArray();
+        
+        return subtasks;
+    }
 }

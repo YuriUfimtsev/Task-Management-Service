@@ -4,6 +4,7 @@ using HomeworkApp.Dal.Repositories.Interfaces;
 using HomeworkApp.IntegrationTests.Creators;
 using HomeworkApp.IntegrationTests.Fakers;
 using HomeworkApp.IntegrationTests.Fixtures;
+using HomeworkApp.IntegrationTests.Helpers;
 using Xunit;
 
 namespace HomeworkApp.IntegrationTests.RepositoryTests;
@@ -88,5 +89,34 @@ public class TaskRepositoryTests
         
         expectedTask = expectedTask with {Status = assign.Status};
         task.Should().BeEquivalentTo(expectedTask);
+    }
+
+    [Fact]
+    public async Task GetSubTasksInStatus_DoneStatus_Success()
+    {
+        // Arrange
+        var doneStatus = Dal.Enums.TaskStatus.Done;
+        var generatedHierarchicalTasks = HierarchicalDataHelper.Generate(doneStatus);
+        var addedHierarchicalTasks = await HierarchicalDataHelper.Fill(
+            _repository, generatedHierarchicalTasks);
+        var rootTaskId = addedHierarchicalTasks.RootTaskId;
+        
+        var expectedTasks = addedHierarchicalTasks.Tasks
+            .Where(task => task.Status == (int)doneStatus)
+            .Where(task => task.Id != rootTaskId);
+
+        // Act
+        var actualTasks = await _repository.GetSubTasksInStatus(
+            rootTaskId, new [] { doneStatus }, default);
+
+        //Asserts
+        actualTasks.Should().HaveSameCount(expectedTasks);
+        actualTasks.Should().OnlyContain(task => task.Status == doneStatus);
+        actualTasks.Should().OnlyContain(task => task.ParentTaskIds.Contains(rootTaskId));
+
+        actualTasks.Where(task => task.TaskId == rootTaskId)
+            .Should().BeEmpty();
+        actualTasks.Should().OnlyContain(task => task.ParentTaskIds.First() == rootTaskId
+                                                 && task.ParentTaskIds.Last() == task.TaskId); 
     }
 }

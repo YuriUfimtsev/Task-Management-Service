@@ -1,9 +1,12 @@
 using FluentMigrator.Runner;
 using HomeworkApp.Dal.Extensions;
+using HomeworkApp.Dal.Infrastructure;
 using HomeworkApp.Dal.Repositories.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Moq;
 
 namespace HomeworkApp.IntegrationTests.Fixtures
 {
@@ -13,11 +16,15 @@ namespace HomeworkApp.IntegrationTests.Fixtures
         
         public ITaskRepository TaskRepository { get; }
         
+        public ITaskCommentRepository TaskCommentRepository { get; }
+        
         public ITaskLogRepository TaskLogRepository { get; }
         
         public ITakenTaskRepository TakenTaskRepository { get; }
         
         public IUserScheduleRepository UserScheduleRepository { get; }
+
+        public Mock<IDateTimeProvider> DateTimeProviderFake { get; } = new();
 
         public TestFixture()
         {
@@ -31,6 +38,9 @@ namespace HomeworkApp.IntegrationTests.Fixtures
                 {
                     services.AddDalInfrastructure(config)
                         .AddDalRepositories();
+                    services.Replace(
+                        new ServiceDescriptor(typeof(IDateTimeProvider),
+                            DateTimeProviderFake.Object));
                 })
                 .Build();
             
@@ -41,6 +51,7 @@ namespace HomeworkApp.IntegrationTests.Fixtures
             var serviceProvider = scope.ServiceProvider;
             UserRepository = serviceProvider.GetRequiredService<IUserRepository>();
             TaskRepository = serviceProvider.GetRequiredService<ITaskRepository>();
+            TaskCommentRepository = serviceProvider.GetRequiredService<ITaskCommentRepository>();
             TaskLogRepository = serviceProvider.GetRequiredService<ITaskLogRepository>();
             TakenTaskRepository = serviceProvider.GetRequiredService<ITakenTaskRepository>();
             UserScheduleRepository = serviceProvider.GetRequiredService<IUserScheduleRepository>();
